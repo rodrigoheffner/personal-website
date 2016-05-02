@@ -24,7 +24,29 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        
+        <link rel="stylesheet" href="assets/plugins/github-activity/css/octicons.min.css">
+        <link rel="stylesheet" href="assets/plugins/github-activity/css/github-activity-0.1.4.min.css">
 
+        <!-- Javascript -->          
+        <script type="text/javascript" src="assets/plugins/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>    
+        <script type="text/javascript" src="assets/plugins/jquery-rss/dist/jquery.rss.min.js"></script> 
+        <script type="text/javascript" src="assets/js/main.js"></script>     
+        
+        <script type="text/javascript" src="assets/plugins/github-activity/js/mustache.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/github-activity/js/github-activity-0.1.4.min.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                console.log('here')
+                GitHubActivity.feed({
+                    username: "rodrigoheffner",
+                    selector: "#github-feed",
+                    limit: 20
+                });
+            })
+        </script>
     </head> 
 
     <body>
@@ -40,7 +62,8 @@
                         <li><a href="https://github.com/rodrigoheffner" target="_blank"><i class="fa fa-github-alt"></i></a></li>                  
                     </ul> 
                 </div><!--//profile-->
-                <a class="btn btn-cta-primary pull-right" data-toggle="modal" data-target="#contactModal"><i class="fa fa-paper-plane"></i> Contact Me</a>              
+<!--                <a class="btn btn-cta-primary pull-right" data-toggle="modal" data-target="#contactModal"><i class="fa fa-paper-plane"></i> Contact Me</a>              -->
+                <a class="btn btn-cta-primary pull-right" href="mailto:rodrigo.heffner@gmail.com"><i class="fa fa-paper-plane"></i> Contact Me</a>
             </div><!--//container-->
         </header><!--//header-->
 
@@ -52,7 +75,7 @@
                             <h2 class="heading">About Me</h2>
                             <div class="content">
                                 <p>My name is Rodrigo Bezerra and I'm a senior software developer.</p>    
-                                <p>I have always been interested in technology in general, but the first time I actually learned about coding was when I was an exchange student in the US, and took C as a subject in High School. It took me some time to understand it initially, but then I realised I wanted to pursue a career in computer science.</p>
+                                <p>I have always been interested in technology in general, but the first time I actually learned about coding was when I was an exchange student in the US, and took C classes in High School. After this fantastic opportunity I realised I wanted to pursue a career in computer science.</p>
                                 <p>In my spare time I'm usually going for long walks, coding or reading about technology. I also like jogging, playing squash, and watching TV series / movies.</p>
                             </div><!--//content-->
                         </div><!--//section-inner-->                 
@@ -159,12 +182,8 @@
                     <section class="github section">
                         <div class="section-inner">
                             <h2 class="heading">My GitHub</h2>
-                            <!--<p><a href="#"><img class="img-responsive" src="assets/images/github-chart.png" alt="GitHub Contributions Chart" /></a></p>-->               
-                            <div class="github-widget" data-repo="rodrigoheffner/d3js-editor"></div>
-                            <br />
-                            <div class="github-widget" data-repo="rodrigoheffner/personal-website"></div>
-                            <br />
-                            <div class="github-widget" data-repo="rodrigoheffner/wicket-quickstart"></div>
+                            
+                            <div id="github-feed"></div>
                         </div><!--//secton-inner-->
                     </section><!--//section-->
                 </div><!--//primary-->
@@ -232,23 +251,6 @@
                         </div><!--//section-inner-->                 
                     </aside><!--//section-->
 
-<!--                    <aside class="testimonials aside section">
-                        <div class="section-inner">
-                            <h2 class="heading">Testimonials</h2>
-                            <div class="content">
-                                <div class="item">
-                                    <blockquote class="quote">                                  
-                                        <p><i class="fa fa-quote-left"></i>James is an excellent software engineer and he is passionate about what he does. You can totally count on him to deliver your projects!</p>
-                                    </blockquote>                
-                                    <p class="source"><span class="name">Tim Adams</span><br /><span class="title">Curabitur commodo</span></p>                                                             
-                                </div>//item
-
-                                <p><a class="more-link" href="#"><i class="fa fa-external-link"></i> More on Linkedin</a></p> 
-
-                            </div>//content
-                        </div>//section-inner
-                    </aside>//section-->
-
                     <aside class="education aside section">
                         <div class="section-inner">
                             <h2 class="heading">Education</h2>
@@ -312,16 +314,6 @@
                         </div><!--//section-inner-->
                     </aside><!--//section-->
 
-<!--                    <aside class="blog aside section">
-                        <div class="section-inner">
-                            <h2 class="heading">Latest Blog Posts</h2>
-                            <p>You can use Sascha Depold's <a href="https://github.com/sdepold/jquery-rss" target="_blank">jQuery RSS plugin</a> to pull in your blog post feeds.</p>
-                            <div id="rss-feeds" class="content">
-
-                            </div>//content
-                        </div>//section-inner
-                    </aside>//section-->
-
                     <aside class="list music aside section">
                         <div class="section-inner">
                             <h2 class="heading">Favourite coding music</h2>
@@ -333,18 +325,6 @@
                         </div><!--//section-inner-->
                     </aside><!--//section-->
 
-<!--                    <aside class="list conferences aside section">
-                        <div class="section-inner">
-                            <h2 class="heading">Conferences</h2>
-                            <div class="content">
-                                <ul class="list-unstyled">
-                                    <li><i class="fa fa-calendar"></i> <a href="https://developer.apple.com/wwdc/" target="_blank">WWDC 2014</a> (San Francisco)</li>
-                                    <li><i class="fa fa-calendar"></i> <a href="http://hive.aigaseattle.org/">Hive</a> (Seattle)</li>
-                                </ul>
-                            </div>//content
-                        </div>//section-inner
-                    </aside>//section-->
-
                     <aside class="credits aside section">
                         <div class="section-inner">
                             <h2 class="heading">Credits</h2>
@@ -353,7 +333,7 @@
                                     <li><a href="http://getbootstrap.com/" target="_blank"><i class="fa fa-external-link"></i> Bootstrap 3.2</a></li>
                                     <li><a href="http://fortawesome.github.io/Font-Awesome/" target="_blank"><i class="fa fa-external-link"></i> FontAwsome 4.1</a></li>
                                     <li><a href="http://jquery.com/" target="_blank"><i class="fa fa-external-link"></i> jQuery</a></li>
-                                    <li><a href="https://github.com/JoelSutherland/GitHub-jQuery-Repo-Widget" target="_blank"><i class="fa fa-external-link"></i> GitHub jQuery Repo Widget</a></li>
+                                    <li><a href="https://github.com/caseyscarborough/github-activity" target="_blank"><i class="fa fa-external-link"></i> GitHub Activity Widget</a></li>
 
                                     <li><a href="https://github.com/sdepold/jquery-rss" target="_blank"><i class="fa fa-external-link"></i> jQuery RSS</a></li>
 
@@ -399,21 +379,6 @@
             </div>
           </div>
         </div>
-
-        <!-- ******FOOTER****** --> 
-<!--        <footer class="footer">
-            <div class="container text-center">
-                <small class="copyright">Designed with <i class="fa fa-heart"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank">3rd Wave Media</a> for developers</small>
-            </div>//container
-        </footer>//footer-->
-
-        <!-- Javascript -->          
-        <script type="text/javascript" src="assets/plugins/jquery-1.11.1.min.js"></script>
-        <script type="text/javascript" src="assets/plugins/jquery-migrate-1.2.1.min.js"></script>
-        <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>    
-        <script type="text/javascript" src="assets/plugins/jquery-rss/dist/jquery.rss.min.js"></script> 
-        <script type="text/javascript" src="assets/js/main.js"></script>     
-        <script type="text/javascript" src="assets/plugins/git-jquery-widget/jquery.githubRepoWidget.min.js"></script>     
     </body>
 </html> 
 
